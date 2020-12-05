@@ -1,0 +1,16 @@
+name: SpectatorTarget
+version: ${project.version}
+main: net.teamfruit.spectatortarget.SpectatorTarget
+api-version: 1.15
+authors: [Kamesuta]
+
+commands:
+  ride:
+    usage: /ride <rider> <ridee>
+    description: 乗る
+    permission: ride
+
+permissions:
+  ride:
+    description: 乗る
+    default: op
