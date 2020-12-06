@@ -47,6 +47,8 @@ public final class SpectatorTarget extends JavaPlugin {
         Player ridee = rideeOptional.get();
 
         rider.setGameMode(GameMode.SPECTATOR);
+        rider.teleport(ridee);
+        ridee.addPassenger(rider);
         rider.setSpectatorTarget(ridee);
 
         sender.sendMessage(new ComponentBuilder()
@@ -55,6 +57,18 @@ public final class SpectatorTarget extends JavaPlugin {
                 .append(" を ").color(ChatColor.GREEN)
                 .append(ridee.getDisplayName()).color(ChatColor.WHITE)
                 .append(" に追従させました。").color(ChatColor.GREEN)
+                .create()
+        );
+        rider.sendMessage(new ComponentBuilder()
+                .append("[かめすたプラグイン] ").color(ChatColor.LIGHT_PURPLE)
+                .append(ridee.getDisplayName()).color(ChatColor.WHITE)
+                .append(" に追従しています。").color(ChatColor.GREEN)
+                .create()
+        );
+        ridee.sendMessage(new ComponentBuilder()
+                .append("[かめすたプラグイン] ").color(ChatColor.LIGHT_PURPLE)
+                .append(rider.getDisplayName()).color(ChatColor.WHITE)
+                .append(" に追従されています。").color(ChatColor.GREEN)
                 .create()
         );
 
